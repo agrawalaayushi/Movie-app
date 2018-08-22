@@ -19,15 +19,7 @@ export function requestUpcomingMovies(params) {
 };
 
 export function receiveUpcomingMoviesResponse(response) {
-  // if (response.hasOwnProperty('success') && !response.success) {
-  //   response.isSuccess = false;
-  //   response.isError = true;
-  //   response.jobPostApplicantsResponse = getErrorMessage(response.error);
-  // } else {
-  //   response.isSuccess = true;
-  //   response.isError = false;
-  //   response.jobPostApplicantsResponse = response.data;
-  // }
+  response.upcomingMoviesResponse = response;
   return{
     type: ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE,
     response

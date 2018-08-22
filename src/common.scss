@@ -1,0 +1,27 @@
+.movie-card-wrp{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow-x: auto;
+  min-width: 270px;
+  @media screen and (min-width: 768px){
+    justify-content: flex-start;
+  }
+  .movie-card-view{
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    z-index: 1;
+    width: 267px;
+    height: 200px;
+    box-shadow: 2px 3.5px 21px 0 rgba(0, 0, 0, 0.06);
+    padding: 14px;
+    background-color: #474747;
+    margin: 5px;
+    @media screen and (min-width: 768px){
+      width: 267px;
+      height: 200px;
+    }
+  }
+}
