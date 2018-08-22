@@ -2,26 +2,19 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { simpleAction } from '../../actions/action';
-import Search from '../Search/search';
-import { Header } from '../Header/header';
-import UpcomingMoviesList from '../Movie/upcoming-movie-list';
 
-class Home extends Component {
+class SearchBar extends Component {
 
     simpleAction(event){
       this.props.simpleAction();
      }
-  
-    componentWillMount() {
-      this.props.history.push('/upcoming');
-    }
     
     render() {
       return (
-        <div className="App">
-          <Header />
-          <Search />
-          <UpcomingMoviesList />
+        <div className="search-bar">
+          <div className="search-bar-wrapper">
+            <input type="text" placeholder={"Search for a movie.."}/>
+          </div>
         </div>
       );
     }
@@ -35,5 +28,5 @@ class Home extends Component {
     simpleAction: () => dispatch(simpleAction())
    })
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Home);
+  export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
   

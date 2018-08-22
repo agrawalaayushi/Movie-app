@@ -8,7 +8,7 @@ export default () => (
    <BrowserRouter>
     <Switch>
       <Route path="/" exact render={props => <Home {...props}/>} />
-      <Route path="/landing-page" exact render={props => <Home {...props}/>} />
+      <Route path="/upcoming" exact render={props => <Home {...props}/>} />
     </Switch>
    </BrowserRouter>
  )
