@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { simpleAction } from '../../actions/action';
 import Search from '../Search/search';
 import { Header } from '../Header/header';
-import UpcomingMoviesList from '../Movie/upcoming-movie-list';
+import UpcomingMovieList from '../Movie/upcoming-movie-list';
 // import  '../../App.scss';
 import '../../App.css';
 
@@ -24,7 +24,7 @@ class Home extends Component {
         <div className="movie-home-view">
           <Header />
           <Search />
-          <UpcomingMoviesList />
+          <UpcomingMovieList {...this.props} />
         </div>
       );
     }

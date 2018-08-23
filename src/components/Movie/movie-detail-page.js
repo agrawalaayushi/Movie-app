@@ -3,13 +3,11 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { simpleAction, requestUpcomingMovies} from '../../actions/action';
-import Search from '../Search/search';
-import { Header } from '../Header/header';
 import MovieCardView from '../common/movie-card-view';
 
-class UpcomingMovieList extends Component {
-  constructor(props){
-    super(props);
+class MovieDetailPage extends Component {
+  constructor(){
+    super();
     this.state = {
 
     }
@@ -29,7 +27,6 @@ class UpcomingMovieList extends Component {
     getMovieCard(card, index) {
       return(
         <MovieCardView
-          {...this.props}
           key={index}
           movie={card.movie}
           movieDetails={card}
@@ -42,20 +39,9 @@ class UpcomingMovieList extends Component {
       const { upcomingMoviesResponse } = this.props;
       const upcomingMovies = upcomingMoviesResponse.results
       return(
-        <div className= "movies-upcoming-view">
-          <div className="movies-upcoming-section position-relative">
-            {/* <div className="center">
-              {orgConnectionsResponse.count > 6 && isAdminConnectionCollapsed && <Button className='view-more app-btn' onClick={()=> this.toggleAdminConnectionView(maxLimit, offset)} type= "button">{t('common.viewMore')}</Button>}
-              {!isAdminConnectionCollapsed && <Button className='view-more app-btn' onClick={()=> this.toggleAdminConnectionView(minLimit, offset)} type= "button">{t('common.viewLess')}</Button>}
-            </div> */}
-            { upcomingMovies.length > 0 ?
-              <div className={"movie-card-wrp"}>
-                { upcomingMovies.map((item, index) =>( this.getMovieCard(item, index) )) }
-              </div> :
-              <div className= "data-not-available-wrp">
-                <p className="data-not-available">Movies not available</p>
-              </div>
-            }
+        <div className= "movies-details-view">
+          <div className="movies-detail-section position-relative">
+           Movie Detail Page
           </div>
         </div>
       )
@@ -73,7 +59,7 @@ class UpcomingMovieList extends Component {
       const { upcomingMoviesResponse } = this.props;
       return (
         <div className="movie-list-view">
-          { upcomingMoviesResponse && this.getUpcomingMoviesView() }
+          { this.getUpcomingMoviesView() }
         </div>
       );
     }
@@ -96,5 +82,5 @@ class UpcomingMovieList extends Component {
   getUpcomingMovies: () => dispatch(requestUpcomingMovies()),
   })
   
-export default connect(mapStateToProps, mapDispatchToProps)(UpcomingMovieList);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailPage);
   

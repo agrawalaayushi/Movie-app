@@ -3,6 +3,8 @@ import {
   BrowserRouter, Route, Switch
  } from 'react-router-dom';
 import Home from '../components/Home/home';
+import MovieDetailPage from '../components/Movie/movie-detail-page';
+
 import '../App.css';
 
 export default () => (
@@ -10,6 +12,7 @@ export default () => (
     <Switch>
       <Route path="/" exact render={props => <Home {...props}/>} />
       <Route path="/upcoming" exact render={props => <Home {...props}/>} />
+      <Route exact path="/:movieImdbId" render={(props)=> <MovieDetailPage {...props}/>} />
     </Switch>
    </BrowserRouter>
  )
