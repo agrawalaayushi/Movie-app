@@ -22,6 +22,12 @@ const reducer = (state = initialState, action) => {
       state = state.set('upcomingMoviesResponse', action.response.upcomingMoviesResponse);
       return state;
     }
+
+    case ActionTypes.RECEIVE_SEARCH_RESULT_BY_KEYWORD_RESPONSE: {
+      state = state.set('searchByKeywordResponse', action.response.searchByKeywordResponse);
+      return state;
+    }
+    
    default:
     return state
   }

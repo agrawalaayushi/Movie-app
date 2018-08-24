@@ -5,7 +5,7 @@ import { simpleAction } from '../../actions/action';
 import Search from '../Search/search';
 import { Header } from '../Header/header';
 import UpcomingMoviesList from '../Movie/upcoming-movie-list';
-import { BACKGROUND_IMAGE_GRADIENT } from '../../constants/misc';
+import { BACKGROUND_IMAGE_GRADIENT, IMG_URL } from '../../constants/misc';
 import { IMAGE_PLACEHOLDER } from '../../constants/images';
 import '../../styles/common.css';
 
@@ -27,6 +27,7 @@ class MovieCardView extends Component {
           <div className='title' onClick={()=> this.openMovieDetailPage(movieDetails.id)}>{movieDetails.title}</div>
           <div className='releasing-date'>Releasing on {movieDetails.release_date}</div>
           <div className='description'>{movieDetails.overview}</div>
+          <img src={`${IMG_URL}${posterImage}`} />
         </div>
       );
     }

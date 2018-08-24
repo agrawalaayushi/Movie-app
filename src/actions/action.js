@@ -1,6 +1,6 @@
 import ActionTypes from '../constants/action-type';
 import {
-  getUpcomingMovies
+  getUpcomingMovies, getSearchResultByKeyword
 } from '../utils/app-api-utils';
 
 export const simpleAction = () => dispatch => {
@@ -10,8 +10,7 @@ export const simpleAction = () => dispatch => {
   })
  }
 
- // GET JOB POST APPLICANTS
-
+// GET UPCOMING MOVIES
 export function requestUpcomingMovies(params) {
   return(dispatch)=>{
     getUpcomingMovies(dispatch, params);
@@ -22,6 +21,22 @@ export function receiveUpcomingMoviesResponse(response) {
   response.upcomingMoviesResponse = response;
   return{
     type: ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE,
+    response
+  }
+};
+
+// GET MOVIES
+export function requestSearchByKeyword(params) {
+  debugger
+  return(dispatch)=>{
+    getSearchResultByKeyword(dispatch, params);
+  }
+};
+
+export function receiveSearchByKeywordResponse(response) {
+  response.searchByKeywordResponse = response;
+  return{
+    type: ActionTypes.RECEIVE_SEARCH_RESULT_BY_KEYWORD_RESPONSE,
     response
   }
 };

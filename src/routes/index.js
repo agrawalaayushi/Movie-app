@@ -13,6 +13,7 @@ export default () => (
       <Route path="/" exact render={props => <Home {...props}/>} />
       <Route path="/upcoming" exact render={props => <Home {...props}/>} />
       <Route exact path="/:movieImdbId" render={(props)=> <MovieDetailPage {...props}/>} />
+      <Route exact path="/:searchKeyword" render={(props)=> <Home {...props}/>} />
     </Switch>
    </BrowserRouter>
  )
