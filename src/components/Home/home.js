@@ -43,7 +43,7 @@ class Home extends Component {
         <div className="search-bar">
           <div className="search-bar-wrapper">
             <SearchBar
-              handlesearchKeywordCallback={(query)=> this.handleSearchMovies(query)}         
+              handleSearchQueryCallback={(query)=> this.handleSearchMovies(query)}         
               />
           </div>
         </div>

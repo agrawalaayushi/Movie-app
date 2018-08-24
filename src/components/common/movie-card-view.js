@@ -2,9 +2,6 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { simpleAction } from '../../actions/action';
-import Search from '../Search/search';
-import { Header } from '../Header/header';
-import UpcomingMoviesList from '../Movie/upcoming-movie-list';
 import { BACKGROUND_IMAGE_GRADIENT, IMG_URL } from '../../constants/misc';
 import { IMAGE_PLACEHOLDER } from '../../constants/images';
 import '../../styles/common.css';
