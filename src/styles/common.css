@@ -1,0 +1,62 @@
+.content-heading {
+  padding-left: 10px; }
+
+.movie-card-wrp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  min-width: 270px; }
+  .movie-card-wrp .movie-card-view {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    z-index: 1;
+    width: 267px;
+    height: 200px;
+    box-shadow: 2px 3.5px 21px 0 rgba(0, 0, 0, 0.06);
+    padding: 14px;
+    background-color: white;
+    margin: 5px;
+    margin-bottom: 10px; }
+    @media screen and (min-width: 768px) {
+      .movie-card-wrp .movie-card-view {
+        width: 267px;
+        height: 200px;
+        margin-bottom: 30px; } }
+    .movie-card-wrp .movie-card-view .title {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 10px 0 10px 0;
+      padding-bottom: 4px;
+      cursor: pointer;
+      border-bottom: 1px solid #ccc; }
+    .movie-card-wrp .movie-card-view .releasing-date {
+      color: rgba(0, 0, 0, 0.6);
+      line-height: 1em;
+      font-size: 14px; }
+    .movie-card-wrp .movie-card-view .description {
+      color: rgba(0, 0, 0, 0.6);
+      margin-top: 30px;
+      font-size: 14px;
+      overflow: hidden;
+      position: relative;
+      line-height: 1.2em;
+      max-height: 110px;
+      margin-right: -1em;
+      margin-right: -9px;
+      text-align: justify;
+      padding-right: 14px; }
+      .movie-card-wrp .movie-card-view .description:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0; }
+      .movie-card-wrp .movie-card-view .description:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: white; }

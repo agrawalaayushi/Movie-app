@@ -5,8 +5,7 @@ import { simpleAction } from '../../actions/action';
 import Search from '../Search/search';
 import { Header } from '../Header/header';
 import UpcomingMovieList from '../Movie/upcoming-movie-list';
-// import  '../../App.scss';
-import '../../App.css';
+import '../../styles/app.scss';
 
 
 class Home extends Component {

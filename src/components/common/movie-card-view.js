@@ -7,7 +7,7 @@ import { Header } from '../Header/header';
 import UpcomingMoviesList from '../Movie/upcoming-movie-list';
 import { BACKGROUND_IMAGE_GRADIENT } from '../../constants/misc';
 import { IMAGE_PLACEHOLDER } from '../../constants/images';
-import '../../common.css';
+import '../../styles/common.css';
 
 
 class MovieCardView extends Component {
@@ -25,9 +25,8 @@ class MovieCardView extends Component {
       return (
         <div className="movie-card-view">
           <div className='title' onClick={()=> this.openMovieDetailPage(movieDetails.id)}>{movieDetails.title}</div>
-          <div className='description'>Releasing on {movieDetails.release_date}</div>
-          <div className='description'>Popularity {movieDetails.popularity}</div>
-          <div>{movieDetails.overview}</div>
+          <div className='releasing-date'>Releasing on {movieDetails.release_date}</div>
+          <div className='description'>{movieDetails.overview}</div>
         </div>
       );
     }

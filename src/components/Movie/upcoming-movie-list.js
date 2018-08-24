@@ -48,6 +48,7 @@ class UpcomingMovieList extends Component {
               {orgConnectionsResponse.count > 6 && isAdminConnectionCollapsed && <Button className='view-more app-btn' onClick={()=> this.toggleAdminConnectionView(maxLimit, offset)} type= "button">{t('common.viewMore')}</Button>}
               {!isAdminConnectionCollapsed && <Button className='view-more app-btn' onClick={()=> this.toggleAdminConnectionView(minLimit, offset)} type= "button">{t('common.viewLess')}</Button>}
             </div> */}
+            <h2 className="content-heading">Upcoming Movies</h2>
             { upcomingMovies.length > 0 ?
               <div className={"movie-card-wrp"}>
                 { upcomingMovies.map((item, index) =>( this.getMovieCard(item, index) )) }
