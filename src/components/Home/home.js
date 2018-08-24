@@ -2,11 +2,10 @@ import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { isEqual } from 'lodash';
 import { simpleAction, requestSearchByKeyword } from '../../actions/action';
-import SearchBar from '../common/search-bar';
 import { Header } from '../Header/header';
+import SearchBar from '../common/search-bar';
 import UpcomingMovieList from '../Movie/upcoming-movie-list';
 import '../../styles/app.scss';
-
 
 class Home extends Component {
   constructor(props){
@@ -57,7 +56,7 @@ class Home extends Component {
 const mapStateToProps = state => ({
   ...state,
   searchByKeywordResponse: state.reducer.get("searchByKeywordResponse")
-  })
+})
 
 const mapDispatchToProps = dispatch => ({
   handleSearchMovies: (query) => dispatch(requestSearchByKeyword(query))

@@ -3,7 +3,6 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { simpleAction, requestUpcomingMovies} from '../../actions/action';
-import Search from '../Search/search';
 import { Header } from '../Header/header';
 import MovieCardView from '../common/movie-card-view';
 
