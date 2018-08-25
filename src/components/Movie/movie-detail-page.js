@@ -69,7 +69,6 @@ class MovieDetailPage extends Component {
 
   render() {
     const { movieDetailsResponse } = this.props;
-    debugger
     return (
       <div className="movie-list-view">
         <Header />
