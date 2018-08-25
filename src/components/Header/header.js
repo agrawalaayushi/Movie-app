@@ -1,12 +1,10 @@
 import React from 'react';
+import  '../../styles/app.scss';
 
 export const Header = () => {
   return (
-    <div>
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h1 className="App-title"></h1>
+    <header className="header-view">
+      <h1 className="header-title">Movie App</h1>
     </header>
-    </div>
   )
 }

@@ -1,6 +1,6 @@
 import ActionTypes from '../constants/action-type';
 import {
-  getUpcomingMovies
+  getUpcomingMovies, getSearchResultByKeyword, getMovieDetails
 } from '../utils/app-api-utils';
 
 export const simpleAction = () => dispatch => {
@@ -10,8 +10,7 @@ export const simpleAction = () => dispatch => {
   })
  }
 
- // GET JOB POST APPLICANTS
-
+// GET UPCOMING MOVIES
 export function requestUpcomingMovies(params) {
   return(dispatch)=>{
     getUpcomingMovies(dispatch, params);
@@ -19,17 +18,39 @@ export function requestUpcomingMovies(params) {
 };
 
 export function receiveUpcomingMoviesResponse(response) {
-  // if (response.hasOwnProperty('success') && !response.success) {
-  //   response.isSuccess = false;
-  //   response.isError = true;
-  //   response.jobPostApplicantsResponse = getErrorMessage(response.error);
-  // } else {
-  //   response.isSuccess = true;
-  //   response.isError = false;
-  //   response.jobPostApplicantsResponse = response.data;
-  // }
+  response.upcomingMoviesResponse = response;
   return{
     type: ActionTypes.RECEIVE_UPCOMING_MOVIES_RESPONSE,
+    response
+  }
+};
+
+// GET MOVIES
+export function requestSearchByKeyword(params) {
+  return(dispatch)=>{
+    getSearchResultByKeyword(dispatch, params);
+  }
+};
+
+export function receiveSearchByKeywordResponse(response) {
+  response.searchByKeywordResponse = response;
+  return{
+    type: ActionTypes.RECEIVE_SEARCH_RESULT_BY_KEYWORD_RESPONSE,
+    response
+  }
+};
+
+// GET MOVIE DETAILS
+export function requestMovieDetails(params) {
+  return(dispatch)=>{
+    getMovieDetails(dispatch, params);
+  }
+};
+
+export function receiveMovieDetailsResponse(response) {
+  response.movieDetailsResponse = response;
+  return{
+    type: ActionTypes.RECEIVE_MOVIE_DETAILS_RESPONSE,
     response
   }
 };
