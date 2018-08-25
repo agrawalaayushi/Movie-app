@@ -70,6 +70,7 @@ class UpcomingMovieList extends Component {
 
   render() {
     const { upcomingMoviesResponse } = this.props;
+    debugger
     return (
       <div className="movie-list-view">
         { upcomingMoviesResponse ? this.getUpcomingMoviesView() : <Loader/> }
