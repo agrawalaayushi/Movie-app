@@ -36,14 +36,6 @@ class MovieDetailPage extends Component {
   // Views
   //-----------------------------------
 
-
-
-  getLoaderView(){
-    return(
-      <Loader />
-    )
-  } 
-
   getMovieDetailsView() {
     const { movieDetailsResponse } = this.props;
     console.log(movieDetailsResponse);
@@ -77,11 +69,12 @@ class MovieDetailPage extends Component {
 
   render() {
     const { movieDetailsResponse } = this.props;
+    debugger
     return (
       <div className="movie-list-view">
         <Header />
 
-        { movieDetailsResponse ? this.getMovieDetailsView() : this.getLoaderView() }
+        { movieDetailsResponse ? this.getMovieDetailsView() : <Loader /> }
       </div>
     );
   }
