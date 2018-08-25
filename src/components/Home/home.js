@@ -1,7 +1,7 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { isEqual } from 'lodash';
-import { simpleAction, requestSearchByKeyword } from '../../actions/action';
+import { requestSearchByKeyword } from '../../actions/action';
 import { Header } from '../Header/header';
 import SearchBar from '../common/search-bar';
 import UpcomingMovieList from '../Movie/upcoming-movie-list';

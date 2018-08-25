@@ -4,6 +4,8 @@ import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { requestMovieDetails} from '../../actions/action';
 import MovieCardView from '../common/movie-card-view';
+import { Loader } from '../common/loader';
+import { Header } from '../Header/header';
 
 class MovieDetailPage extends Component {
   constructor() {
@@ -38,11 +40,18 @@ class MovieDetailPage extends Component {
     )
   };
 
-  getUpcomingMoviesView() {
+  getLoaderView(){
+    return(
+      <Loader />
+    )
+  } 
+
+  getMovieDetailsView() {
     const { movieDetailResponse } = this.props;
     // const movieDetails = movieDetailResponse.results
     return(
       <div className= "movies-details-view">
+        <Header />
         <div className="movies-detail-section position-relative">
           Movie Detail Page
         </div>
@@ -64,7 +73,9 @@ class MovieDetailPage extends Component {
     const { movieDetailResponse } = this.props;
     return (
       <div className="movie-list-view">
-        { this.getUpcomingMoviesView() }
+        <Header />
+
+        { movieDetailResponse ? this.getMovieDetailsView() : this.getLoaderView() }
       </div>
     );
   }

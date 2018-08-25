@@ -4,6 +4,7 @@ import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { requestUpcomingMovies} from '../../actions/action';
 import MovieCardView from '../common/movie-card-view';
+import { Loader } from '../common/loader';
 
 class UpcomingMovieList extends Component {
   constructor(props) {
@@ -75,7 +76,7 @@ class UpcomingMovieList extends Component {
     const { upcomingMoviesResponse } = this.props;
     return (
       <div className="movie-list-view">
-        { upcomingMoviesResponse && this.getUpcomingMoviesView() }
+        { upcomingMoviesResponse ? this.getUpcomingMoviesView() : <Loader/> }
       </div>
     );
   }
@@ -87,7 +88,7 @@ const mapStateToProps = state => ({
  })
 
 const mapDispatchToProps = dispatch => ({
-getUpcomingMovies: () => dispatch(requestUpcomingMovies()),
+  getUpcomingMovies: () => dispatch(requestUpcomingMovies()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpcomingMovieList);
