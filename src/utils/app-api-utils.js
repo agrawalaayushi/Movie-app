@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  receiveUpcomingMoviesResponse, receiveSearchByKeywordResponse
+  receiveUpcomingMoviesResponse, receiveSearchByKeywordResponse, receiveMovieDetailsResponse
 } from '../actions/action';
 
 const API_KEY = '0131c79337ac4dc9ed8a36d0e932c1ea';
@@ -32,5 +32,19 @@ export function getSearchResultByKeyword(dispatch, params) {
   .catch(error => {
     const errorResponse = error;
     dispatch(receiveSearchByKeywordResponse(errorResponse));
+  });
+};
+
+// GET MOVIE DETAILS
+export function getMovieDetails(dispatch, params) {
+  let url = `${API_URL}/movie/${params.movieId}?api_key=${API_KEY}&language=en-US`;
+  axios.get(url)
+  .then(response => {
+    const successResponse = response.data;
+    dispatch(receiveMovieDetailsResponse(successResponse));
+  })
+  .catch(error => {
+    const errorResponse = error;
+    dispatch(receiveMovieDetailsResponse(errorResponse));
   });
 };

@@ -1,6 +1,6 @@
 import ActionTypes from '../constants/action-type';
 import {
-  getUpcomingMovies, getSearchResultByKeyword
+  getUpcomingMovies, getSearchResultByKeyword, getMovieDetails
 } from '../utils/app-api-utils';
 
 export const simpleAction = () => dispatch => {
@@ -41,17 +41,16 @@ export function receiveSearchByKeywordResponse(response) {
 };
 
 // GET MOVIE DETAILS
-
 export function requestMovieDetails(params) {
   return(dispatch)=>{
-    getSearchResultByKeyword(dispatch, params);
+    getMovieDetails(dispatch, params);
   }
 };
 
-// export function receiveSearchByKeywordResponse(response) {
-//   response.searchByKeywordResponse = response;
-//   return{
-//     type: ActionTypes.RECEIVE_SEARCH_RESULT_BY_KEYWORD_RESPONSE,
-//     response
-//   }
-// };
+export function receiveMovieDetailsResponse(response) {
+  response.movieDetailsResponse = response;
+  return{
+    type: ActionTypes.RECEIVE_MOVIE_DETAILS_RESPONSE,
+    response
+  }
+};

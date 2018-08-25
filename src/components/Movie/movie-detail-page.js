@@ -8,9 +8,10 @@ import { Loader } from '../common/loader';
 import { Header } from '../Header/header';
 
 class MovieDetailPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      activePath: this.props.match
     }
   }
   //-----------------------------------
@@ -18,11 +19,15 @@ class MovieDetailPage extends Component {
   //-----------------------------------
 
   init() {
-    this.getUpcomingMovies();
+    this.getMovieDetails();
   }
 
-  getUpcomingMovies() {
-    this.props.getUpcomingMovies();
+  getMovieDetails() {
+    const {activePath} = this.state;
+    const params = {
+      movieId: parseInt(activePath.params.movieImdbId)
+    }
+    this.props.getMovieDetails(params);
   }
 
   //-----------------------------------
@@ -47,11 +52,10 @@ class MovieDetailPage extends Component {
   } 
 
   getMovieDetailsView() {
-    const { movieDetailResponse } = this.props;
-    // const movieDetails = movieDetailResponse.results
+    const { movieDetailsResponse } = this.props;
+    // const movieDetails = movieDetailsResponse.results
     return(
       <div className= "movies-details-view">
-        <Header />
         <div className="movies-detail-section position-relative">
           Movie Detail Page
         </div>
@@ -70,12 +74,12 @@ class MovieDetailPage extends Component {
   }
 
   render() {
-    const { movieDetailResponse } = this.props;
+    const { movieDetailsResponse } = this.props;
     return (
       <div className="movie-list-view">
         <Header />
 
-        { movieDetailResponse ? this.getMovieDetailsView() : this.getLoaderView() }
+        { movieDetailsResponse ? this.getMovieDetailsView() : this.getLoaderView() }
       </div>
     );
   }
@@ -83,12 +87,12 @@ class MovieDetailPage extends Component {
 
 const mapStateToProps = state => ({
   ...state,
-  movieDetailResponse: state.reducer.get('movieDetailResponse'),
+  movieDetailsResponse: state.reducer.get('movieDetailsResponse'),
 
   })
 
 const mapDispatchToProps = dispatch => ({
-  getUpcomingMovies: () => dispatch(requestMovieDetails()),
+  getMovieDetails: (params) => dispatch(requestMovieDetails(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailPage);
