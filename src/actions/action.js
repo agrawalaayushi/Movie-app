@@ -27,7 +27,6 @@ export function receiveUpcomingMoviesResponse(response) {
 
 // GET MOVIES
 export function requestSearchByKeyword(params) {
-  debugger
   return(dispatch)=>{
     getSearchResultByKeyword(dispatch, params);
   }
@@ -40,3 +39,19 @@ export function receiveSearchByKeywordResponse(response) {
     response
   }
 };
+
+// GET MOVIE DETAILS
+
+export function requestMovieDetails(params) {
+  return(dispatch)=>{
+    getSearchResultByKeyword(dispatch, params);
+  }
+};
+
+// export function receiveSearchByKeywordResponse(response) {
+//   response.searchByKeywordResponse = response;
+//   return{
+//     type: ActionTypes.RECEIVE_SEARCH_RESULT_BY_KEYWORD_RESPONSE,
+//     response
+//   }
+// };

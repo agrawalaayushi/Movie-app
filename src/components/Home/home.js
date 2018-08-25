@@ -8,20 +8,26 @@ import UpcomingMovieList from '../Movie/upcoming-movie-list';
 import '../../styles/app.scss';
 
 class Home extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
     }
   }
 
-  handleSearchMovies(query){
-    debugger
+  //-----------------------------------
+  // Methods
+  //-----------------------------------
+
+  handleSearchMovies(query) {
     this.setState({
       searchKeyword: query
     })
     this.props.handleSearchMovies(query);
-    debugger
   }
+
+  //-----------------------------------
+  // Lifecycle
+  //-----------------------------------
 
   componentWillMount() {
     this.props.history.push('/upcoming');
@@ -36,7 +42,6 @@ class Home extends Component {
 
   render() {
     const { searchByKeywordResponse } = this.props;
-    debugger
     return (
       <div className="movie-home-view">
         <Header />

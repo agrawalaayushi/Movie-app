@@ -2,85 +2,82 @@
 // import { React, Component } from 'react';
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
-import { simpleAction, requestUpcomingMovies} from '../../actions/action';
+import { requestMovieDetails} from '../../actions/action';
 import MovieCardView from '../common/movie-card-view';
 
 class MovieDetailPage extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-
     }
   }
-    simpleAction(event){
-      this.props.simpleAction();
-     }
-     
-    init() {
-      this.getUpcomingMovies();
-    }
+  //-----------------------------------
+  // Methods
+  //-----------------------------------
 
-    getUpcomingMovies() {
-      this.props.getUpcomingMovies();
-    }
+  init() {
+    this.getUpcomingMovies();
+  }
 
-    getMovieCard(card, index) {
-      return(
-        <MovieCardView
-          key={index}
-          movie={card.movie}
-          movieDetails={card}
-          showmovieDetailsModalCallback={(movieDetails)=> this.handleShowmovieDetailsModal(movieDetails)}
-        />
-      )
-    };
+  getUpcomingMovies() {
+    this.props.getUpcomingMovies();
+  }
 
-    getUpcomingMoviesView(){
-      const { upcomingMoviesResponse } = this.props;
-      const upcomingMovies = upcomingMoviesResponse.results
-      return(
-        <div className= "movies-details-view">
-          <div className="movies-detail-section position-relative">
-           Movie Detail Page
-          </div>
+  //-----------------------------------
+  // Views
+  //-----------------------------------
+
+  getMovieCard(card, index) {
+    return(
+      <MovieCardView
+        key={index}
+        movie={card.movie}
+        movieDetails={card}
+        showmovieDetailsModalCallback={(movieDetails)=> this.handleShowmovieDetailsModal(movieDetails)}
+      />
+    )
+  };
+
+  getUpcomingMoviesView() {
+    const { movieDetailResponse } = this.props;
+    // const movieDetails = movieDetailResponse.results
+    return(
+      <div className= "movies-details-view">
+        <div className="movies-detail-section position-relative">
+          Movie Detail Page
         </div>
-      )
-    }
+      </div>
+    )
+  }
 
-    componentDidMount() {
-      this.init();
-    }
-    
-    componentWillReceiveProps(newProps) {
-      console.log(newProps)
-    }
-
-    render() {
-      const { upcomingMoviesResponse } = this.props;
-      return (
-        <div className="movie-list-view">
-          { this.getUpcomingMoviesView() }
-        </div>
-      );
-    }
+  //-----------------------------------
+  // Lifecycle
+  //-----------------------------------
+  componentDidMount() {
+    this.init();
   }
   
-  // const mapStateToProps = state => ({
-  //   ...state,
-  //   upcomingMoviesResponse: state.get('upcomingMoviesResponse'),
-  //  })
-
-  function mapStateToProps(state) {
-    return {
-      upcomingMoviesResponse: state.reducer.get('upcomingMoviesResponse'),
-    };
+  componentWillReceiveProps(newProps) {
   }
-  
-  
-  const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction()),
-  getUpcomingMovies: () => dispatch(requestUpcomingMovies()),
+
+  render() {
+    const { movieDetailResponse } = this.props;
+    return (
+      <div className="movie-list-view">
+        { this.getUpcomingMoviesView() }
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  ...state,
+  movieDetailResponse: state.reducer.get('movieDetailResponse'),
+
   })
-  
+
+const mapDispatchToProps = dispatch => ({
+  getUpcomingMovies: () => dispatch(requestMovieDetails()),
+})
+
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailPage);
-  

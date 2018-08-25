@@ -27,12 +27,10 @@ export function getSearchResultByKeyword(dispatch, params) {
   axios.get(url)
   .then(response => {
     const successResponse = response.data;
-    debugger
     dispatch(receiveSearchByKeywordResponse(successResponse));
   })
   .catch(error => {
     const errorResponse = error;
-    debugger
     dispatch(receiveSearchByKeywordResponse(errorResponse));
   });
 };
