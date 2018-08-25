@@ -3,9 +3,11 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { requestMovieDetails} from '../../actions/action';
-import MovieCardView from '../common/movie-card-view';
+import { IMG_URL } from '../../constants/misc';
+import { IMAGE_PLACEHOLDER } from '../../constants/images';
 import { Loader } from '../common/loader';
 import { Header } from '../Header/header';
+import '../../styles/app.scss';
 
 class MovieDetailPage extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class MovieDetailPage extends Component {
   getMovieDetails() {
     const {activePath} = this.state;
     const params = {
-      movieId: parseInt(activePath.params.movieImdbId)
+      movieId: parseInt(activePath.params.movieImdbId),
     }
     this.props.getMovieDetails(params);
   }
@@ -34,16 +36,7 @@ class MovieDetailPage extends Component {
   // Views
   //-----------------------------------
 
-  getMovieCard(card, index) {
-    return(
-      <MovieCardView
-        key={index}
-        movie={card.movie}
-        movieDetails={card}
-        showmovieDetailsModalCallback={(movieDetails)=> this.handleShowmovieDetailsModal(movieDetails)}
-      />
-    )
-  };
+
 
   getLoaderView(){
     return(
@@ -53,11 +46,23 @@ class MovieDetailPage extends Component {
 
   getMovieDetailsView() {
     const { movieDetailsResponse } = this.props;
+    console.log(movieDetailsResponse);
+    const posterImage = movieDetailsResponse.poster_path;
     // const movieDetails = movieDetailsResponse.results
     return(
-      <div className= "movies-details-view">
-        <div className="movies-detail-section position-relative">
-          Movie Detail Page
+      <div className= "movie-details-view">
+        <div className="poster-wrapper">
+          <img className="poster-image" src={`${IMG_URL}${posterImage}` || IMAGE_PLACEHOLDER} alt="Movie Poster"/>
+        </div>
+        <div className="movie-title">
+          <h2 className="title">{movieDetailsResponse.title}</h2>
+          <span className="imdb-rating">{movieDetailsResponse.vote_average}</span>
+        </div>
+        <div className="movie-description-wrapper">
+          <div className="movie-overview">
+            <h3 className="overview-heading">Overview</h3>
+            <p className="overview-content">{movieDetailsResponse.overview}</p>
+          </div>
         </div>
       </div>
     )
@@ -68,9 +73,6 @@ class MovieDetailPage extends Component {
   //-----------------------------------
   componentDidMount() {
     this.init();
-  }
-  
-  componentWillReceiveProps(newProps) {
   }
 
   render() {

@@ -52,3 +52,56 @@
     padding-right: 20px;
   } 
 }
+
+.movie-details-view {
+  .poster-wrapper {
+    .poster-image {
+      position: relative;
+      top: 0;
+      width: 100vw;
+      height: 56vw;
+      border-radius: 0;
+      height: 67vh;
+      box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    }
+  }
+  .movie-title {
+    display: flex;
+    align-items: baseline;
+    margin: 20px;
+    color: black;
+    .title {
+      font-size: 32px;
+      @media screen and (min-width: 768px) {
+        font-size: 40px;
+      } 
+    }
+    .imdb-rating {
+      font-size: 24px;
+      padding-left: 20px;
+      opacity: 0.6;
+      font-size: 1.7em;
+      font-weight: 400;
+    }
+  }
+
+  .movie-description-wrapper {
+    .movie-overview {
+      color: white;
+      background-color: rgba(8, 28, 36, 0.85);
+      width: 100%;
+      padding: 14px;
+      .overview-heading {
+        font-weight: 600;
+        line-height: 1.3em;
+        font-size: 18px;
+        @media screen and (min-width: 768px) {
+          font-size: 20px;
+        } 
+      }
+      .overview-content {
+        font-size: 16px;
+      }
+    }
+  }
+}

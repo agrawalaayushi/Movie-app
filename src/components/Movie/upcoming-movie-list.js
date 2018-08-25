@@ -67,10 +67,6 @@ class UpcomingMovieList extends Component {
   componentDidMount() {
     this.init();
   }
-  
-  componentWillReceiveProps(newProps) {
-    console.log(newProps)
-  }
 
   render() {
     const { upcomingMoviesResponse } = this.props;
