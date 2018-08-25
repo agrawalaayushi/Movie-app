@@ -46,9 +46,6 @@
   min-width: 270px;
   padding-left: 10px;
   padding-right: 10px; }
-  @media screen and (min-width: 768px) {
-    .movie-card-wrp {
-      justify-content: space-between; } }
   .movie-card-wrp .movie-card-view {
     position: relative;
     overflow: hidden;
@@ -58,12 +55,13 @@
     box-shadow: 2px 3.5px 21px 0 rgba(0, 0, 0, 0.06);
     background-color: white;
     margin-bottom: 10px;
+    margin-right: 5px;
     display: flex;
     align-items: center;
     box-sizing: border-box; }
     @media screen and (min-width: 768px) {
       .movie-card-wrp .movie-card-view {
-        width: 365px;
+        width: 330px;
         height: 200px;
         margin-bottom: 30px; } }
     .movie-card-wrp .movie-card-view .poster-image {
@@ -74,8 +72,8 @@
         height: 100%; }
     .movie-card-wrp .movie-card-view .movie-info {
       padding: 20px 14px;
-      width: 100%;
-      height: 100%;
+      width: 244px;
+      height: 200px;
       box-sizing: border-box; }
       .movie-card-wrp .movie-card-view .movie-info .title {
         font-size: 17px;
@@ -83,7 +81,8 @@
         margin: 10px 0 10px 0;
         padding-bottom: 4px;
         cursor: pointer;
-        border-bottom: 1px solid #ccc; }
+        border-bottom: 1px solid #ccc;
+        word-wrap: break-word; }
       .movie-card-wrp .movie-card-view .movie-info .releasing-date {
         color: rgba(0, 0, 0, 0.6);
         line-height: 1em;
@@ -100,5 +99,5 @@
             margin-top: 30px;
             overflow: hidden;
             text-overflow: ellipsis;
-            width: 237px;
+            width: 200px;
             white-space: nowrap; } }

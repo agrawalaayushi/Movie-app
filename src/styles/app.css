@@ -37,3 +37,7 @@
   @media screen and (min-width: 768px) {
     .movie-home-view .search-bar .search-bar-wrapper input {
       font-size: 14px; } }
+
+.movie-home-view .movie-list-view {
+  padding-left: 20px;
+  padding-right: 20px; }
