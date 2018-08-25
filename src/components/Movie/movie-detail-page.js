@@ -3,7 +3,7 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { requestMovieDetails} from '../../actions/action';
-import { IMG_URL } from '../../constants/misc';
+import { IMG_URL, BACKGROUND_IMAGE_GRADIENT } from '../../constants/misc';
 import { IMAGE_PLACEHOLDER } from '../../constants/images';
 import { Loader } from '../common/loader';
 import { Header } from '../Header/header';
@@ -38,9 +38,8 @@ class MovieDetailPage extends Component {
 
   getMovieDetailsView() {
     const { movieDetailsResponse } = this.props;
-    console.log(movieDetailsResponse);
-    const posterImage = movieDetailsResponse.poster_path;
-    // const movieDetails = movieDetailsResponse.results
+    const posterImage = movieDetailsResponse.backdrop_path;
+    const coverGradient = BACKGROUND_IMAGE_GRADIENT;
     return(
       <div className= "movie-details-view">
         <div className="poster-wrapper">

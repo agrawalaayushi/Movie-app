@@ -21,8 +21,8 @@
   position: relative;
   top: 0;
   width: 100vw;
-  height: 56vw;
   min-height: 350px;
+  max-height: 400px;
   border-radius: 0;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); }
 
@@ -89,7 +89,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh; }
+  height: 400px; }
   .loader-wrapper .loader {
     border: 16px solid #f3f3f3;
     border-top: 16px solid #3498db;
